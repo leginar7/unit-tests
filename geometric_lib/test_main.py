@@ -1,10 +1,11 @@
 import unittest
 import math
 
-import rectangle
-import square
-import triangle
-import circle
+from geometric_lib import rectangle
+from geometric_lib import circle
+from geometric_lib import square
+from geometric_lib import triangle
+
 
 
 class TestGeometry(unittest.TestCase):
