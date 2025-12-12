@@ -1,25 +1,15 @@
+def _validate(a, b):
+    if not (isinstance(a, (int, float)) and isinstance(b, (int, float))):
+        raise TypeError("Sides must be numeric")
+    if a < 0 or b < 0:
+        raise ValueError("Sides must be non-negative")
+
+
 def area(a, b):
-    """
-    Возвращает площадь прямоугольника.
-    
-    Параметры:
-        a (float): ширина прямоугольника
-        b (float): высота прямоугольника
-    
-    Возвращаемое значение:
-        area (float): площадь прямоугольника
-    """
+    _validate(a, b)
     return a * b
 
+
 def perimeter(a, b):
-    """
-    Возвращает периметр прямоугольника.
-    
-    Параметры:
-        a (float): ширина прямоугольника
-        b (float): высота прямоугольника
-    
-    Возвращаемое значение:
-        perimeter (float): периметр прямоугольника
-    """
+    _validate(a, b)
     return 2 * (a + b)

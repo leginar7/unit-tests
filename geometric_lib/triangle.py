@@ -1,16 +1,28 @@
-def area(a, h):
-    '''
-    Принимает сторону треугольника a и высоту h, опущенную к этой стороне (float или int).
-    Возвращает площадь треугольника (float),
-    вычисляемую по формуле: (a * h) / 2.
-    '''
-    return a * h / 2
+def _validate(a, b, c=None):
+    # area uses 2 params
+    if c is None:
+        if not (isinstance(a, (int, float)) and isinstance(b, (int, float))):
+            raise TypeError("Sides must be numeric")
+        if a < 0 or b < 0:
+            raise ValueError("Sides must be non-negative")
+        return
+
+    # perimeter uses 3 params
+    if not (
+        isinstance(a, (int, float))
+        and isinstance(b, (int, float))
+        and isinstance(c, (int, float))
+    ):
+        raise TypeError("Sides must be numeric")
+    if a < 0 or b < 0 or c < 0:
+        raise ValueError("Sides must be non-negative")
+
+
+def area(a, b):
+    _validate(a, b)
+    return 0.5 * a * b
 
 
 def perimeter(a, b, c):
-    '''
-    Принимает длины трёх сторон треугольника a, b и c (float или int).
-    Возвращает периметр треугольника (float),
-    вычисляемый по формуле: a + b + c.
-    '''
+    _validate(a, b, c)
     return a + b + c

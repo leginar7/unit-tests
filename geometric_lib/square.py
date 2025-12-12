@@ -1,16 +1,15 @@
+def _validate(a):
+    if not isinstance(a, (int, float)):
+        raise TypeError("Side must be numeric")
+    if a < 0:
+        raise ValueError("Side must be non-negative")
+
+
 def area(a):
-    '''
-    Принимает сторону квадрата a (float или int).
-    Возвращает площадь квадрата (float),
-    вычисляемую по формуле: a².
-    '''
+    _validate(a)
     return a * a
 
 
 def perimeter(a):
-    '''
-    Принимает сторону квадрата a (float или int).
-    Возвращает периметр квадрата (float),
-    вычисляемый по формуле: 4 * a.
-    '''
+    _validate(a)
     return 4 * a
